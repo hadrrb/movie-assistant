@@ -30,22 +30,21 @@ With the ability to understand and respond to complex queries, the Movie Assista
 
 *Note: The movie dataset used in this project was taken from Kaggle and can be accessed [here](https://www.kaggle.com/datasets/rajugc/imdb-movies-dataset-based-on-genre/data).*
 
-
 ### Project Structure
 
 - **Dockerfile**: Contains the instructions to build the Docker image for the application.
 - **README.md**: Provides an overview of the project, its features, and instructions for setup and usage.
-- **app.py**: The main application script that runs the Movie Assistant.
+- **app.py**: The main application script that runs the Movie Assistant. It uses streamlit to create a web interface.
 - **config**: Directory containing configuration files for Grafana dashboards and data sources.
     - **grafana_dashboards.yaml**: Configuration for Grafana dashboards.
     - **grafana_datasources.yaml**: Configuration for Grafana data sources.
-- **dashboards**: Directory for storing Grafana dashboard JSON files.
+- **dashboards**: Directory for storing Grafana dashboard JSON files (TODO).
 - **data**: Directory for storing the movie dataset.
     - **movies.csv**: The CSV file containing the movie dataset.
 - **docker-compose.yml**: Configuration file for Docker Compose to set up and run multi-container Docker applications.
 - **notebooks**: Directory containing Jupyter notebooks for experiments and data preparation.
-    - **experiment.ipynb**: Notebook for running experiments with the data and models.
-    - **prepare_data.ipynb**: Notebook for preparing and cleaning the movie dataset.
+    - **experiment.ipynb**: Notebook for running experiments with the data and models. You can find there the whole algorithm step by step. Monitoring was added later on, in py scripts though.
+    - **prepare_data.ipynb**: Notebook for preparing and cleaning the movie dataset from Kaggle.
     - **requirements.txt**: List of Python dependencies for the notebooks.
 - **requirement.txt**: List of Python dependencies for the main application.
 - **scripts**: Directory for storing various scripts.
