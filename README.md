@@ -61,7 +61,6 @@ With the ability to understand and respond to complex queries, the Movie Assista
 
 ## Setup and Usage
 Before starting go to `.env` file and set the OpenAI API key, so you can run the whole project. It assumes you have access to gpt-4o-mini.
-```bash
 First off, run all the services using docker compose. This will start the Elasticsearch, Postgres db, Grafana and the Movie Assistant services.
 
 ```bash
