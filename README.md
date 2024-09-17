@@ -76,8 +76,13 @@ docker exec movie-assistant-app-1 python src/ingest.py
 It might take some time, but at the end of the process, the movie data will be ingested into the Elasticsearch index.
 
 From now on you can open your browser and access the Movie Assistant at `http://localhost:8501`.
+
+![Movie Assistant](img/rag.png)
+
 Grafana can be accessed at `http://localhost:3000` with the following credentials: admin, admin
+
 After running some queries on the Movie Assistant, you can check the logs and metrics on Grafana.
+
 You can load the dashboard configuration by importing the `dashboards/movie-assistant-dashboard.json` file, it contains 5 visualizations to monitor the application, as shown below:
 
 ![Grafana Dashboard](img/grafana.png)
