@@ -39,10 +39,17 @@ services:
 
   app:
     build: .
+    depends_on:
+      - db
+      - elasticsearch
     env_file:
       - .env
     ports:  
+      - "8501:8501"
+      - "8502:8502"
       - "8503:8503"
+    networks:
+      - app-network
 
 networks:
   app-network:

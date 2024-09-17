@@ -7,7 +7,7 @@ def read_data(file_path='data/movies.csv'):
     return data
 
 def configure_elasticsearch(index_name):
-    es_client = Elasticsearch('http://localhost:9200') 
+    es_client = Elasticsearch('http://elasticsearch:9200') 
 
     index_settings = {
         "settings": {
@@ -40,10 +40,6 @@ def configure_elasticsearch(index_name):
     es_client.indices.create(index=index_name, body=index_settings)
     return es_client
 
-def read_data(file_path='data/movies.csv'):
-    data = read_data(file_path)
-    return data
-
 def get_embedding_model(model_name="multi-qa-distilbert-cos-v1"):
     embedding_model = SentenceTransformer(model_name)
     return embedding_model
@@ -51,7 +47,7 @@ def get_embedding_model(model_name="multi-qa-distilbert-cos-v1"):
 def process_and_index_data(df, es_client, model_name="multi-qa-distilbert-cos-v1", index_name="movies-database"):
     embedding_model = get_embedding_model(model_name)
     df["name_descr_genre_director_star"] = df.apply(lambda row: f'{row.movie_name} {row.description} {row.genre} {row.director} {row.star}', axis=1)
-    df["name_descr_genre_director_star_vector"] = embedding_model.encode(df["name_descr_genre_director_star"], show_progress_bar=True, device="mps:0").tolist()
+    df["name_descr_genre_director_star_vector"] = embedding_model.encode(df["name_descr_genre_director_star"]).tolist()
     df.drop("name_descr_genre_director_star", axis=1, inplace=True)
 
     for _, doc in df.iterrows():

@@ -32,7 +32,7 @@ With the ability to understand and respond to complex queries, the Movie Assista
 
 
 ### Project Structure
-```
+
 - **Dockerfile**: Contains the instructions to build the Docker image for the application.
 - **README.md**: Provides an overview of the project, its features, and instructions for setup and usage.
 - **app.py**: The main application script that runs the Movie Assistant.
@@ -57,5 +57,26 @@ With the ability to understand and respond to complex queries, the Movie Assista
     - **elastic_search.py**: Script for interacting with Elasticsearch.
     - **ingest.py**: Script for ingesting data into the application.
     - **llm.py**: Script for leveraging the Large Language Model.
+
+
+## Setup and Usage
+Before starting go to `.env` file and set the OpenAI API key, so you can run the whole project. It assumes you have access to gpt-4o-mini.
+```bash
+First off, run all the services using docker compose. This will start the Elasticsearch, Postgres db, Grafana and the Movie Assistant services.
+
+```bash
+docker-compose up
 ```
 
+Once the services are up and running, you'll need to ingest the movie data into the application. This can be done by running the following command:
+
+```bash
+docker exec movie-assistant-app-1 python src/ingest.py
+```
+
+It might take some time, but at the end of the process, the movie data will be ingested into the Elasticsearch index.
+
+From now on you can open your browser and access the Movie Assistant at `http://localhost:8501`.
+Grafana can be accessed at `http://localhost:3000` with the following credentials: admin, admin
+After running some queries on the Movie Assistant, you can check the logs and metrics on Grafana.
+The dashboard needs to be configures though. The db is already tied. But creating specific dashboards is still a TODO.

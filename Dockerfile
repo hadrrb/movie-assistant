@@ -6,9 +6,9 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY src/ ./app/src
+COPY data/* /app/data/
+COPY src/* /app/src/
+COPY app.py /app/
 
-RUN python src/ingest.py
 
-
-ENTRYPOINT [ "streamlit", "app.py" ]
+ENTRYPOINT [ "streamlit", "run", "app.py" ]
