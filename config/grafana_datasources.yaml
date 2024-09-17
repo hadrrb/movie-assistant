@@ -14,4 +14,3 @@ datasources:
       password: 'password'
     jsonData:
       sslmode: 'disable'
-      database: test

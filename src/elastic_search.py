@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
 
 # Initialize the Elasticsearch client
-es_client = Elasticsearch("http://localhost:9200")
+es_client = Elasticsearch("http://elasticsearch:9200")
 index_name = "movies-database"
 
 

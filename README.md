@@ -38,15 +38,16 @@ With the ability to understand and respond to complex queries, the Movie Assista
 - **config**: Directory containing configuration files for Grafana dashboards and data sources.
     - **grafana_dashboards.yaml**: Configuration for Grafana dashboards.
     - **grafana_datasources.yaml**: Configuration for Grafana data sources.
-- **dashboards**: Directory for storing Grafana dashboard JSON files (TODO).
+- **dashboards**: Directory for storing Grafana dashboard JSON file.
 - **data**: Directory for storing the movie dataset.
     - **movies.csv**: The CSV file containing the movie dataset.
+- **img**: Directory for storing images used in the README.
 - **docker-compose.yml**: Configuration file for Docker Compose to set up and run multi-container Docker applications.
 - **notebooks**: Directory containing Jupyter notebooks for experiments and data preparation.
     - **experiment.ipynb**: Notebook for running experiments with the data and models. You can find there the whole algorithm step by step. Monitoring was added later on, in py scripts though.
     - **prepare_data.ipynb**: Notebook for preparing and cleaning the movie dataset from Kaggle.
     - **requirements.txt**: List of Python dependencies for the notebooks.
-- **requirement.txt**: List of Python dependencies for the main application.
+- **requirements.txt**: List of Python dependencies for the main application.
 - **scripts**: Directory for storing various scripts.
     - **database**: Subdirectory for database-related scripts.
         - **init-db.sh**: Shell script to initialize the database.
@@ -77,4 +78,6 @@ It might take some time, but at the end of the process, the movie data will be i
 From now on you can open your browser and access the Movie Assistant at `http://localhost:8501`.
 Grafana can be accessed at `http://localhost:3000` with the following credentials: admin, admin
 After running some queries on the Movie Assistant, you can check the logs and metrics on Grafana.
-The dashboard needs to be configures though. The db is already tied. But creating specific dashboards is still a TODO.
+You can load the dashboard configuration by importing the `dashboards/movie-assistant-dashboard.json` file, it contains 5 visualizations to monitor the application, as shown below:
+
+![Grafana Dashboard](img/grafana.png)
