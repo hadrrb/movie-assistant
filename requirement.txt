@@ -1,0 +1,6 @@
+psycopg2-binary
+openai
+pandas
+elasticsearch
+sentence_transformers
+streamlit

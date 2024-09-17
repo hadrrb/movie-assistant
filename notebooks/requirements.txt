@@ -1,0 +1,3 @@
+azure-ai-inference
+pandas
+openai
